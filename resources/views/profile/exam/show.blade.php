@@ -106,7 +106,7 @@
     </script>
           
 <script>
-    let timeInSeconds = 5; // Set the initial time in seconds
+    let timeInSeconds = {{ $data->time }}* 60; // Set the initial time in seconds
     const form = document.getElementById('examForm');
     const submitBtn = document.getElementById('submitBtn');
 

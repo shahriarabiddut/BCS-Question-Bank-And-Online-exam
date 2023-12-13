@@ -46,6 +46,19 @@
                         </td>
                     </tr>
                     <tr>
+                        <th>Time</th>
+                        <td><input required name="time" type="number" class="form-control" value="{{ $data->time }}"></td>
+                    </tr>
+                    <tr>
+                        <th>Select Status <span class="text-danger">*</span></th>
+                        <td>
+                            <select required name="status" class="form-control">
+                                <option @if ($data->status==0) @selected(true) @endif value="0">Disable</option>
+                                <option @if ($data->status==1) @selected(true) @endif value="1">Active</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
                         <td colspan="2">
                             <button type="submit" class="btn btn-primary">Update</button>
                         </td>

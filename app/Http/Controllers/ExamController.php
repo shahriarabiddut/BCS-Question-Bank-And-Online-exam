@@ -17,10 +17,17 @@ class ExamController extends Controller
     public function index()
     {
         //
-        $data = Set::all();
+        $data = Set::all()->where('status', '=', '1');
         $mark = Exam::all()->where('user_id', '=', Auth::user()->id);
         // dd($data);
-        return view('profile.exam.index', ['data' => $data, 'mark' => $mark]);
+        return view('profile.exam.index', ['data' => $data]);
+    }
+    public function result()
+    {
+        //
+        $mark = Exam::select('*')->where('user_id', '=', Auth::user()->id)->orderBy("created_at", "desc")->get();
+        // dd($data);
+        return view('profile.exam.marks', ['mark' => $mark]);
     }
 
     /**
@@ -46,6 +53,13 @@ class ExamController extends Controller
     {
         //
         $data = Set::find($id);
+
+        if ($data == null) {
+            return redirect()->route('user.exam.index')->with('danger', 'Not Found!');
+        }
+        if ($data->status == '0') {
+            return redirect()->route('user.exam.index')->with('danger', 'Not Permitted!');
+        }
         $QuestionSet = QuestionSet::all()->where('set_id', '=', $data->id);
         $questions = [];
         foreach ($QuestionSet as $question) {
@@ -92,6 +106,6 @@ class ExamController extends Controller
         $markUpdate->set_id = $id;
         $markUpdate->mark = $markCount;
         $markUpdate->save();
-        return redirect()->route('user.exam.index')->with('success', 'Exam Completed Successfully!');
+        return redirect()->route('user.exam.result')->with('success', 'Exam Completed Successfully!');
     }
 }

@@ -38,6 +38,7 @@ Route::middleware('auth')->prefix('user')->name('user.')->group(function () {
     Route::resource('book', BookController::class);
     // Exam Crud
     Route::post('exam/{id}/check', [ExamController::class, 'check'])->name('exam.check');
+    Route::get('exams/result', [ExamController::class, 'result'])->name('exam.result');
     Route::resource('exam', ExamController::class);
 });
 

@@ -40,12 +40,16 @@ class SetController extends Controller
             'title' => 'required',
             'subject_id' => 'required',
             'type' => 'required',
+            'time' => 'required',
+            'status' => 'required',
         ]);
         //Data save to Database 
         $data = new Set();
         $data->title = $request->title;
         $data->subject_id = $request->subject_id;
         $data->type = $request->type;
+        $data->time = $request->time;
+        $data->status = $request->status;
         // Check subject is given
         if ($request->subject_id == 0) {
             return redirect()->back()->with('error', 'Please Select a Subject!');
@@ -91,6 +95,8 @@ class SetController extends Controller
         $request->validate([
             'title' => 'required',
             'subject_id' => 'required',
+            'time' => 'required',
+            'status' => 'required',
         ]);
         // Check subject is given
         if ($request->subject_id == 0) {
@@ -106,6 +112,8 @@ class SetController extends Controller
         //Data save to Database 
         $data->title = $request->title;
         $data->subject_id = $request->subject_id;
+        $data->time = $request->time;
+        $data->status = $request->status;
 
         //Data Saved
         $data->save();

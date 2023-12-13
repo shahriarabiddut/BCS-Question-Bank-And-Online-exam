@@ -25,6 +25,14 @@
                         <td>{{ $data->subject->title }}</td>
                     </tr>
                     <tr>
+                        <th>Time</th>
+                        <td>{{ $data->time }}</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td> @if ($data->status==1) Active @else Disabled @endif</td>
+                    </tr>
+                    <tr>
                         <th>Number of Questions</th>
                         <td>{{ $count }} 
                             <a href="{{ route('staff.quesset.show',$data->id) }}" class="float-right btn btn-success btn-sm"><i class="fa fa-eye"> View Questions of {{ $data->title }}  </i></a>

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Exam | Dashboard')
+@section('title', 'Exam Marks | Dashboard')
 
 @section('content')
 
@@ -21,7 +21,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Exam Data <a href="{{ route('user.exam.result') }}" class="float-right btn btn-success btn-sm"> <i class="fa fa-eye"></i> Marks Obtained </a> </h6>
+            <h6 class="m-0 font-weight-bold text-primary">Exam Results</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -29,29 +29,30 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Title</th>
+                            <th>Title Set</th>
                             <th>Subject</th>
-                            <th>Action</th>
+                            <th>Mark</th>
+                            <th>Exam Date</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>#</th>
-                            <th>Title</th>
+                            <th>Title Set</th>
                             <th>Subject</th>
-                            <th>Action</th>
+                            <th>Mark</th>
+                            <th>Exam Date</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        @if($data)
-                        @foreach ($data as $key => $d)
+                        @if($mark)
+                        @foreach ($mark as $key => $d)
                         <tr>
                             <td>{{ ++$key }}</td>
-                            <td>{{ $d->title }}</td>
-                            <td>{{ $d->subject->title }}</td>
-                            <td class="text-center">
-                                <a href="{{ route('user.exam.show',$d->id) }}" class="btn btn-info btn-sm"> Exam </a>
-                            </td>
+                            <td>{{ $d->set->title }}</td>
+                            <td>{{ $d->set->subject->title }}</td>
+                            <td>{{ $d->mark }}</td>
+                            <td>{{ ($d->created_at )}}</td>
 
                         </tr>
                         @endforeach
@@ -62,7 +63,6 @@
         </div>
         
     </div>
-
 
     @section('scripts')
     <!-- Page level plugins -->
