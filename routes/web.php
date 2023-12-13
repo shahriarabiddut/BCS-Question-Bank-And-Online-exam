@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ExamController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupportController;
 
@@ -35,6 +36,9 @@ Route::middleware('auth')->prefix('user')->name('user.')->group(function () {
     Route::resource('support', SupportController::class);
     // Book Crud
     Route::resource('book', BookController::class);
+    // Exam Crud
+    Route::post('exam/{id}/check', [ExamController::class, 'check'])->name('exam.check');
+    Route::resource('exam', ExamController::class);
 });
 
 require __DIR__ . '/auth.php';

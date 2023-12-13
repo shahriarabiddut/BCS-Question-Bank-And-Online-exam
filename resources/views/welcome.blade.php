@@ -59,7 +59,7 @@
             <ul>
             @if (Route::has('login'))
             @auth
-            <li><a href="{{ route('student.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
             @else
             <li><a href="{{ route('login') }}">Login</a></li>
               @if (Route::has('register'))

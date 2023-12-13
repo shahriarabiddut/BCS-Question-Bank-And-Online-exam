@@ -7,22 +7,22 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Storage Link Command
+## Laravel Storage Link Command
 
-php artisan storage:link
+`php artisan storage:link`
 
 ## Databse Initialization Command
 
-php artisan migrate
-php artisan migrate:refresh --seed
+`php artisan migrate`
+`php artisan migrate:refresh --seed`
 
 ## Controller Initialization with crud Command
 
-php artisan make:controller Staff/SetController -r
+`php artisan make:controller Staff/SetController -r`
 
 ## Model Initialization with migration Command
 
-php artisan make:model Set -m
+`php artisan make:model Set -m`
 
 ## Project Ongoing Process
 
