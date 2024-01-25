@@ -43,6 +43,11 @@ class SiteOptionSeeder extends Seeder
                 'name' => 'address',
                 'value' => 'Jashore,Bangladesh'
             ],
+
+            [
+                'name' => 'Negative Mark',
+                'value' => '0.5'
+            ],
         ];
         SiteOption::insert($options);
     }

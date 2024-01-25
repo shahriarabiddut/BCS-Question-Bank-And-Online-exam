@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('root');
 
+Route::get('/marks', [ExamController::class, 'marksHome'])->name('marks');
+Route::get('/marks/set/{id}', [ExamController::class, 'marksSetHome'])->name('marksSetHome');
+
+
 //User Routes
 Route::get('user', [ProfileController::class, 'index'])->middleware(['auth'])->name('user.dashboard');
 // Route::get('user', [ProfileController::class, 'index'])->middleware(['auth'])->middleware(['auth', 'verified'])->name('user.dashboard');
