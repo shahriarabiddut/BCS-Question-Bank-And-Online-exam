@@ -1,84 +1,105 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Question Bank and Online Exam
+A Laravel-based question bank and online exam system with multi-authentication for Admin, Staff, and Users. The system includes CRUD operations for various entities and exam functionalities.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Required Configuration
+- **PHP** >= 8.1
+- **Laravel** 10
 
-## Laravel Storage Link Command
+## Installation
+Follow these steps to set up the project:
 
-`php artisan storage:link`
+**Clone the Repository**:
+```bash
+git clone <repository-url>
+cd <project-directory>
+```
 
-## Databse Initialization Command
+**Install Dependencies**:
+Run the following commands to install the required packages:
+```bash
+composer update
+composer install
+```
 
-`php artisan migrate`
-`php artisan migrate:refresh --seed`
+**Generate Application Key**:
+Generate the Laravel application key: This will update the APP_KEY in your .env file.
+```bash
+php artisan key:generate
+```
 
-## Controller Initialization with crud Command
+**Set Up Storage Link**:
+Create a symbolic link for the storage directory:
+```bash
+php artisan storage:link
+```
 
-`php artisan make:controller Staff/SetController -r`
+**Configure Database**:
+Update your .env file with your database credentials:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password
+```
 
-## Model Initialization with migration Command
+**Run Migrations**:
+Initialize the database by running migrations:
+```bash
+php artisan migrate
+```
 
-`php artisan make:model Set -m`
+To seed the database with initial data, use:
+```bash
+php artisan migrate:refresh --seed
+```
 
-## Project Ongoing Process
+## Commands
 
-1. Multi Auth Complete
-   Admin , Staff & User
-   Larvel Breeze
-   Email Verification Enabled for user
-   Login for all
-   Registration Only For Users
-2. Admin CRUD for Users and Staff
-3. CRUD Management
-   3.1 Language CRUD
-   3.2 Book CRUD
-   3.3 Question CRUD
-   3.4 Question Set CRUD
+**Create a Controller with CRUD Operations**:
+To generate a controller with CRUD methods, use:
+```bash
+php artisan make:controller <ControllerName> -r
+```
 
-## Learning Laravel
+**Create a Model with Migration**:
+To create a model along with its migration file, use:
+```bash
+php artisan make:model <ModelName> -m
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Project Features
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Multi-Authentication System**
+   - Admin, Staff, and User roles are implemented.
+   - Laravel Breeze is used for authentication scaffolding.
+   - Email Verification is enabled for users.
+   - Login is available for all roles.
+   - Registration is only for Users.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Admin CRUD Operations**
+   - Admins can perform CRUD operations for Users and Staff.
 
-## Laravel Sponsors
+3. **CRUD Management**
+   - Language CRUD
+   - Book CRUD
+   - Question CRUD
+   - Question Set CRUD
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
--   **[Vehikl](https://vehikl.com/)**
--   **[Tighten Co.](https://tighten.co)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Cubet Techno Labs](https://cubettech.com)**
--   **[Cyber-Duck](https://cyber-duck.co.uk)**
--   **[Many](https://www.many.co.uk)**
--   **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
--   **[DevSquad](https://devsquad.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
--   **[OP.GG](https://op.gg)**
--   **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
--   **[Lendio](https://lendio.com)**
+4. **Exam Management**
+   - Exam on Question Set and see results
+   - Top Marks View and users' position
 
 ## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you'd like to contribute to this project, please follow these steps:
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Submit a pull request.
 
 ## License
+This project is open-source and available under the MIT License.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Support
+For any issues or questions, please contact the development team or open an issue on the repository.
+
